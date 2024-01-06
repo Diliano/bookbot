@@ -4,6 +4,7 @@ def main():
     print(frankenstein_text)
     frankenstein_word_count = get_word_count(frankenstein_text)
     print(frankenstein_word_count)
+    print(get_characters_dict(frankenstein_text))
 
 def get_book_text(book_path):
     with open(book_path) as f:
@@ -14,5 +15,14 @@ def get_word_count(book_text):
     words = book_text.split()
     word_count = len(words)
     return word_count
+
+def get_characters_dict(book_text):
+    characters_dict = {}
+    for character in book_text:
+        if character.lower() in characters_dict:
+            characters_dict[character.lower()] += 1
+        else:
+            characters_dict[character.lower()] = 1
+    return characters_dict
 
 main()
