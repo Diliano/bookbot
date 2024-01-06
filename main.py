@@ -18,11 +18,12 @@ def get_word_count(book_text):
 
 def get_characters_dict(book_text):
     characters_dict = {}
-    for character in book_text:
-        if character.lower() in characters_dict:
-            characters_dict[character.lower()] += 1
+    lowered_book_text = book_text.lower()
+    for character in lowered_book_text:
+        if character in characters_dict:
+            characters_dict[character] += 1
         else:
-            characters_dict[character.lower()] = 1
+            characters_dict[character] = 1
     return characters_dict
 
 main()
