@@ -1,6 +1,10 @@
 def main():
     frankenstein_path = "books/frankenstein.txt"
-    frankenstein_text = get_book_text(frankenstein_path)
+    try:
+        frankenstein_text = get_book_text(frankenstein_path)
+    except Exception as e:
+        print(f"Error reading file: {e}")
+        return
     frankenstein_word_count = get_word_count(frankenstein_text)
     frankenstein_letters_dict = get_letters_dict(frankenstein_text)
     frankenstein_letters_count_list = letters_dict_to_sorted_list(frankenstein_letters_dict)
@@ -8,9 +12,14 @@ def main():
     print(frankenstein_report)
 
 def get_book_text(book_path):
-    with open(book_path) as f:
-        file_contents = f.read()
-        return file_contents
+    try:
+        with open(book_path) as f:
+            file_contents = f.read()
+            return file_contents
+    except FileNotFoundError:
+        raise FileNotFoundError("The file was not found.")
+    except PermissionError:
+        raise PermissionError("You do not have permission to read this file.")
 
 def get_word_count(book_text):
     words = book_text.split()
