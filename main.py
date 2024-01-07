@@ -2,8 +2,9 @@ def main():
     frankenstein_path = "books/frankenstein.txt"
     frankenstein_text = get_book_text(frankenstein_path)
     frankenstein_word_count = get_word_count(frankenstein_text)
-    frankeinstein_letters_count_list = get_letters_count_list(frankenstein_text)
-    frankenstein_report = get_report(frankenstein_path, frankenstein_word_count, frankeinstein_letters_count_list)
+    frankenstein_letters_dict = get_letters_dict(frankenstein_text)
+    frankenstein_letters_count_list = letters_dict_to_sorted_list(frankenstein_letters_dict)
+    frankenstein_report = get_report(frankenstein_path, frankenstein_word_count, frankenstein_letters_count_list)
     print(frankenstein_report)
 
 def get_book_text(book_path):
@@ -16,7 +17,7 @@ def get_word_count(book_text):
     word_count = len(words)
     return word_count
 
-def get_letters_count_list(book_text):
+def get_letters_dict(book_text):
     letters_dict = {}
     lowered_book_text = book_text.lower()
     for character in lowered_book_text:
@@ -26,6 +27,9 @@ def get_letters_count_list(book_text):
                 letters_dict[letter] += 1
             else:
                 letters_dict[letter] = 1
+    return letters_dict
+
+def letters_dict_to_sorted_list(letters_dict):
     letters_count_list = list(letters_dict.items())
     letters_count_list.sort(key = lambda i: i[1], reverse = True)
     return letters_count_list
