@@ -36,8 +36,8 @@ To analyse a different book with BookBot, you need to modify the `main()` functi
     book_path = "path/to/your/book.txt"
     ```
 
-2. **Adjust the rest of 'main' function as required:**
--   The rest of the function will process the new text file as it did with "Frankenstein" and can be changed as required to only print the word count for example
+2. **Adjust the rest of `main()` function as required:**
+-   The rest of the function will process the new text file as it did with "Frankenstein". Feel free to modify it according to your needs; for example, you might want to change the script to only print the word count. 
 
 3. **Run the script:**
 -   After making these changes, save the file and run the script again using `python main.py`
