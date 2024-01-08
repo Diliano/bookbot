@@ -1,19 +1,19 @@
 def main():
-    frankenstein_path = "books/frankenstein.txt"
+    book_path = "books/frankenstein.txt"
 
     # Try to read the book text; handle any file-related errors
     try:
-        frankenstein_text = get_book_text(frankenstein_path)
+        book_text = get_book_text(book_path)
     except Exception as e:
         # Print error message if file reading fails and exit the program
         print(f"Error reading file: {e}")
         return
     
-    frankenstein_word_count = get_word_count(frankenstein_text)
-    frankenstein_letters_dict = get_letters_dict(frankenstein_text)
-    frankenstein_letters_count_list = letters_dict_to_sorted_list(frankenstein_letters_dict)
-    frankenstein_report = get_report(frankenstein_path, frankenstein_word_count, frankenstein_letters_count_list)
-    print(frankenstein_report)
+    book_word_count = get_word_count(book_text)
+    book_letters_dict = get_letters_dict(book_text)
+    book_letters_count_list = letters_dict_to_sorted_list(book_letters_dict)
+    book_report = get_report(book_path, book_word_count, book_letters_count_list)
+    print(book_report)
 
 def get_book_text(book_path):
     # Try to open and read the book file
